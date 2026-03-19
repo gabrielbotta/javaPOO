@@ -6,9 +6,9 @@ public class ControleGastos{
 
         Scanner sc = new Scanner(System.in);
 
-        int qntdDias = 0, i = 0, maior = 0;
+        int qntdDias = 0, i = 0;
         boolean flag = true;
-        double gastoDia = 0.0, gastoTotal = 0.0, mediaDia = 0.0;
+        double gastoDia = 0.0, gastoTotal = 0.0, mediaDia = 0.0, maior = 0.0;
         double totalTrans = 0.0, totalLzr = 0.0, totalAlimentacao = 0.0;
         String diaMaiorGasto = "", nomeDia;
 
@@ -47,6 +47,7 @@ public class ControleGastos{
             totalTrans = totalTrans + vlrTransporte;
 
             if(gastoDia > maior){
+                maior = gastoDia;
                 diaMaiorGasto = nomeDia;
             }
             gastoDia = 0;
@@ -62,7 +63,14 @@ public class ControleGastos{
         System.out.println("Total gasto com transporte: "+ totalTrans);
         System.out.println("Total gasto com alimentação: "+ totalAlimentacao);
         System.out.println("Total gasto com lazer: "+ totalLzr);
+        System.out.println();
         System.out.println("--------------------------------------------");
+
+        if((gastoTotal/qntdDias)<50.0){
+            System.out.println("Gastos controlados! Parabéns, continue assim e já já cê tá rico!!!");
+        } else {
+            System.out.println("Atenção aos gastos!! Controle melhor seus gastos pra não se meter em dívidas!");
+        }
 
     }
 }
